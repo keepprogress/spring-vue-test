@@ -44,12 +44,12 @@ export default {
   props: {
     msg: String
   },
-  data() {
-  return {
-    response: [],
-    errors: []
-  }
-},
+  data () {
+    return {
+      response: [],
+      errors: []
+    }
+  },
 
 callRestService() {
   axios.get(`api/hello`)

@@ -21,7 +21,7 @@ import api from './backend-api'
 export default {
     name: 'bootstrap',
 
-    data() {
+    data () {
         return {
              msg: 'Nice Bootstrap candy!',
       showResponse: false,

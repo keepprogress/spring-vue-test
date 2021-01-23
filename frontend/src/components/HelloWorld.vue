@@ -51,16 +51,16 @@ export default {
     }
   },
 
-callRestService() {
-  axios.get(`api/hello`)
-    .then(response => {
+  callRestService () {
+    axios.get('api/hello')
+      .then(response => {
       // JSON responses are automatically parsed.
-      this.response = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-}
+        this.response = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+  }
 }
 </script>
 

@@ -16,14 +16,13 @@
 </template>
 
 <script>
-import api from './backend-api'
 
 export default {
-    name: 'bootstrap',
+  name: 'bootstrap',
 
-    data () {
-        return {
-             msg: 'Nice Bootstrap candy!',
+  data () {
+    return {
+      msg: 'Nice Bootstrap candy!',
       showResponse: false,
       backendResponse: '',
       fullResponse: {
@@ -37,10 +36,9 @@ export default {
       headers: ['Noting here atm. Did you call the Service?'],
       errors: []
     }
-    },
-    methods: {
-
-    }
+  },
+  methods: {
+  }
 }
 </script>
 

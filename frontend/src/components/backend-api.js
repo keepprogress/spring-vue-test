@@ -1,12 +1,12 @@
-import axois from 'axios'
+import axios from 'axios'
 
 const AXIOS = axios.create({
-    baseURL:`/api`,
-    timeout: 1000
-});
+  baseURL: '/api',
+  timeout: 1000
+})
 
 export default {
-    hello() {
-        return AXIO.get(`/hello`)
-    },
+  hello () {
+    return AXIOS.get('/hello')
+  }
 }

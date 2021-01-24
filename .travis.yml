@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "10.16.3"
+install:
+    - npm install
+script:
+    - npm run clean
+    - npm run build

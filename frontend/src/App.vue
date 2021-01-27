@@ -4,6 +4,8 @@
       <router-link to="/">Hello</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to ="/bootstrap">Bootstrap</router-link>
+      <router-link to ="/user">User</router-link>
+
     </div>
     <router-view/>
   </div>

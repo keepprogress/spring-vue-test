@@ -22,6 +22,11 @@ const routes = [
     path: '/bootstrap',
     name: 'Bootstrap',
     component: Bootstrap
+  },
+  {
+    path: '/user',
+    name: 'User',
+    component: () => import('../components/User.vue')
   }
 ]
 

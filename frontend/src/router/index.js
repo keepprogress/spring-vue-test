@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/user',
     name: 'User',
-    component: () => import('../components/User.vue')
+    component: () => import(/**/ '../components/User.vue')
   }
 ]
 

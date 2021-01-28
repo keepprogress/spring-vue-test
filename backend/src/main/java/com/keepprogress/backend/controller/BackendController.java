@@ -48,7 +48,7 @@ public class BackendController {
         return savedUser.getId();
     }
     
-    @GetMapping("/user{id}")
+    @GetMapping("/user/{id}")
     @ResponseBody 
     public User getUserById(@PathVariable("id") long id) {
     	return userRepository.findById(id).map(user -> {

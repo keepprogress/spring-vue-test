@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.keepprogress.backend.entity.User;
+import com.keepprogress.backend.entity.Users;
 
 import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.*;
@@ -25,8 +25,8 @@ public class UserRepositoryTest {
 	@Autowired
 	private UserRepository users;
 	
-	private User norbertSiegmund = new User("Norbert", "Siegmund");
-	private User KeepProgress = new User ("Keep", "Progress");
+	private Users norbertSiegmund = new Users("Norbert", "Siegmund");
+	private Users KeepProgress = new Users ("Keep", "Progress");
 	
 	@Before
 	public void fillSomeDataIntoOurDb() {
@@ -38,14 +38,14 @@ public class UserRepositoryTest {
 	@Test
 	public void testFindByLastName() throws Exception {
 		// Search for specific User in Database according to lastname
-		List<User> userWithLastNameSiegmund = users.findByLastName("Siegmund");
+		List<Users> userWithLastNameSiegmund = users.findByLastName("Siegmund");
 		
 		assertThat(userWithLastNameSiegmund, contains(norbertSiegmund));
 	}
 	
 	@Test
 	public void testFindByFirstName() throws Exception {
-		List<User> userWithFirstNameKeep = users.findByFirstName("Keep");
+		List<Users> userWithFirstNameKeep = users.findByFirstName("Keep");
 		
 		assertThat(userWithFirstNameKeep, contains(KeepProgress));
 	}

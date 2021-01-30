@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
-import com.keepprogress.backend.entity.User;
+import com.keepprogress.backend.entity.Users;
 import com.keepprogress.backend.exception.UserNotFoundException;
 import com.keepprogress.backend.repository.UserRepository;
 
@@ -41,7 +41,7 @@ public class BackendController {
     @RequestMapping(path = "/user/{lastName}/{firstName}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public long addNewUser (@PathVariable("lastName") String lastName, @PathVariable("firstName") String firstName) {
-        User savedUser = userRepository.save(new User(firstName, lastName));
+        Users savedUser = userRepository.save(new Users(firstName, lastName));
 
         LOG.info(savedUser.toString() + " successfully saved into DB");
 
@@ -50,7 +50,7 @@ public class BackendController {
     
     @GetMapping("/user/{id}")
     @ResponseBody 
-    public User getUserById(@PathVariable("id") long id) {
+    public Users getUserById(@PathVariable("id") long id) {
     	return userRepository.findById(id).map(user -> {
     		LOG.info("Reading user with id" + id + "from database.");
     		return user;

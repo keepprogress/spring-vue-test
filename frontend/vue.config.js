@@ -9,7 +9,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8098',
+        target: 'https://spring-vue-heroku-demo.herokuapp.com',
         ws: true,
         changeOrigin: true
       }

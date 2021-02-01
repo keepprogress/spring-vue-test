@@ -7,11 +7,23 @@
       <router-link to ="/user">User</router-link>
 
     </div>
-    <router-view/>
+    <router-view :hellomsg="msg"/>
   </div>
 </template>
 
-<style>
+<script>
+
+export default {
+  name: 'app',
+  data () {
+    return {
+      msg: 'Welcome to your Vue.js powered Spring Boot App'
+    }
+  }
+}
+</script>
+
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

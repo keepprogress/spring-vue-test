@@ -6,9 +6,9 @@
     <ul>
       <li>
         <a
-          href="https://github.com/nick800103/spring-vue-test"
+          href="https://github.com/keepprogress/spring-vue-test"
           target="_blank"
-          >github.com/jonashackt/spring-boot-vuejs</a
+          >github.com/keepprogress/spring-vue-tes</a
         >
       </li>
     </ul>

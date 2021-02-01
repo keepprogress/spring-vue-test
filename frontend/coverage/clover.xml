@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1612172739512" clover="3.2.0">
+  <project timestamp="1612172739512" name="All files">
+    <metrics statements="17" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="2" elements="28" coveredelements="6" complexity="0" loc="17" ncloc="17" packages="2" files="3" classes="3"/>
+    <package name="src">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="App.vue" path="C:\workspace_for_javaEEEclipse\springvuetest\frontend\src\App.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="19" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="16" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="1"/>
+      <file name="User.vue" path="C:\workspace_for_javaEEEclipse\springvuetest\frontend\src\components\User.vue">
+        <metrics statements="12" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+      </file>
+      <file name="backend-api.js" path="C:\workspace_for_javaEEEclipse\springvuetest\frontend\src\components\backend-api.js">
+        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

@@ -8,7 +8,7 @@
         <a
           href="https://github.com/keepprogress/spring-vue-test"
           target="_blank"
-          >github.com/keepprogress/spring-vue-tes</a
+          >github.com/keepprogress/spring-vue-test</a
         >
       </li>
     </ul>

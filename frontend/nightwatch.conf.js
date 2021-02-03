@@ -2,7 +2,7 @@ const chrome = require('chromedriver')
 
 module.exports = {
 
-  src_folders: ['youtubee2e'],
+  src_folders: ['tests/e2e/youtubee2e'],
 
   webdriver: {
     start_process: true,

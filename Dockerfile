@@ -21,7 +21,7 @@ MAINTAINER keepprogress
 VOLUME /tmp
 
 # Add Spring Boot app.jar to Container
-COPY --from=0 "/springbootvuejs/backend/target/backend1.0.0.jar" app.jar
+COPY --from=0 "/springvuedir/backend/target/backend1.0.0.jar" app.jar
 
 ENV JAVA_OPTS=""
 

@@ -1,30 +1,30 @@
 module.exports = {
     '@tags': ['google'],
     'Google advanced search: Elon Musk'(browser) {
-        const mainQuery = 'Elon Musk'
+        const mainQuery = "Elon Musk"
 
-        const mainQueryInputSelector = 'input[name="as_q"]';
+        const page = browser.page.googleAdvancedSearch();
 
-        const languageDropdownOpenerSelector = '#lr_button';
+        
+        debugger;
 
-        const languageDropdownValueSelector = '.goog-menuitem[value="lang_it"]';
-
-        const lastUpdateDropdownOpenerSelector = '#as_qdr_button'
-
-        const lastUpdateDropdownValueSelector = '.goog-menuitem[value="m"]'
-
-        const submitButtonSelector = '.jfk-button[type="submit"]'
-
+        page
+        .navigate()
+        .setQuery(mainQuery)
+        .selectFilter('@languageDropdown', 'lang_it')
+        .selectFilter('@lastUpdateDropdown', 'm')
+        .search();
 
         browser
-            .url('https://www.google.com/advanced_search')
-            .setValue(mainQueryInputSelector, mainQuery)
-            .click(languageDropdownOpenerSelector)
-            .click(languageDropdownValueSelector)
-            .click(lastUpdateDropdownOpenerSelector)
-            .click(lastUpdateDropdownValueSelector)
-            .click(submitButtonSelector)
-            .saveScreenshot('test_output/google.png')
+            .assert.urlContains('as_q=Elon+Musk', 'Params: Query is Elon Musk')
+            .assert.urlContains('lr=lang_it', 'Params: Language is Italian')
+            .assert.urlContains('as_qdr=m', 'Params: Time period is month')
+           
+        const resultsPageQuerySelector = `.a4bIc input[name="q"][value="${mainQuery}"]`
+
+        browser.assert.visible(resultsPageQuerySelector, 'UI: Elon Musk is set in the query input');
+
+        browser.saveScreenshot('test_output/google.png')
 
     }
 }

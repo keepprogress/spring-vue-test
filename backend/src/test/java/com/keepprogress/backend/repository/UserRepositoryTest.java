@@ -2,20 +2,18 @@ package com.keepprogress.backend.repository;
 
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.keepprogress.backend.entity.Users;
 
 import static org.hamcrest.Matchers.contains;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-@RunWith(SpringRunner.class)
 @DataJpaTest
 public class UserRepositoryTest {
 	
@@ -25,10 +23,10 @@ public class UserRepositoryTest {
 	@Autowired
 	private UserRepository users;
 	
-	private Users norbertSiegmund = new Users("Norbert", "Siegmund");
-	private Users KeepProgress = new Users ("Keep", "Progress");
+	private final Users norbertSiegmund = new Users("Norbert", "Siegmund");
+	private final Users KeepProgress = new Users ("Keep", "Progress");
 	
-	@Before
+	@BeforeEach
 	public void fillSomeDataIntoOurDb() {
 		// Add new User to Database
 		entityManager.persist(norbertSiegmund);

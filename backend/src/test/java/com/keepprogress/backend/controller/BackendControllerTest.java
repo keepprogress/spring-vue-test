@@ -1,24 +1,22 @@
 package com.keepprogress.backend.controller;
 
+import com.keepprogress.backend.BackendApplication;
+import com.keepprogress.backend.entity.Users;
+import io.restassured.RestAssured;
+import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+
+
+
+import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static io.restassured.RestAssured.given;
-
-
-
-import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
-
-import com.keepprogress.backend.BackendApplication;
-import com.keepprogress.backend.entity.Users;
-
-import io.restassured.RestAssured;
-
 
 
 
@@ -103,7 +101,7 @@ public class BackendControllerTest {
 		public void secured_api_should_give_http_200_when_authorized() {
 
 			given()
-				.auth().basic("sina", "miller")
+				.auth().basic("mike", "miller")
 			.when()
 				.get("/api/secured")
 			.then()

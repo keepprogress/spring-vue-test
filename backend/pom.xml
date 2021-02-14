@@ -75,6 +75,8 @@
 			<version>${rest-assured.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+		
 
 		<!-- The fixed groovy version is necessary after upgrade to Rest-Assured 4.3. because of conflicts otherwise
  		see https://stackoverflow.com/questions/61020200/getting-java-lang-abstractmethoderror-when-i-test-using-rest-assured -->

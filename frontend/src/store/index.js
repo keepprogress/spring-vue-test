@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     loginSuccess: false,
     loginError: false,
-    userName: null
+    userName: null,
+    userPass: null
   },
   actions: {
     login ({ commit }, { user, password }) {
@@ -20,7 +21,7 @@ export default new Vuex.Store({
             if (response.status === 200) {
               console.log('Login successful')
               // place the loginSuccess state into our vuex store
-              commit('login_success', {
+              commit('loginSuccess', {
                 userName: user,
                 userPass: password
               })
@@ -30,7 +31,7 @@ export default new Vuex.Store({
           .catch(error => {
             console.log('Error: ' + error)
             // place the loginError state into our vuex store
-            commit('login_error', {
+            commit('loginError', {
               userName: user
             })
             reject(new Error('Invalid credentials!'))
@@ -39,21 +40,17 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    loginSuccess (state, name) {
+    loginSuccess (state, payload) {
       state.loginSuccess = true
-      state.username = name
+      state.username = payload.userName
     },
-    loginError (state) {
+    loginError (state, payload) {
       state.loginError = true
-      state.userName = name
+      state.userName = payload.userName
     }
   },
   getters: {
-    isLoggedIn (state) {
-      return state.loginSuccess
-    },
-    hasLoginErrored (state) {
-      return state.loginError
-    }
+    isLoggedIn: state => state.loginSuccess,
+    hasLoginErrored: state => state.loginError
   }
 })

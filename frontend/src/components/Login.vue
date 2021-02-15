@@ -42,7 +42,7 @@ export default {
       this.$store.dispatch('login', { user: this.user, password: this.password })
         .then(() => this.$router.push('/protected'))
         .catch(error => {
-          console.log('Vuex store state.loginSuccess:' + this.$store.state.loginSuccess + 'Vuex store state.loginError' + this.$store.state.loginError)
+          console.log('Vuex store state.loginSuccess: ' + this.$store.state.loginSuccess + ' Vuex store state.loginError ' + this.$store.state.loginError)
           console.log('Error: ' + error)
         })
     }

@@ -26,3 +26,23 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# logback
+logback.out.xml
+
+backend/src/main/resources/public/
+backend/target
+frontend/dist/
+frontend/node/
+frontend/coverage/
+frontend/node_modules/
+frontend/npm-debug.log
+frontend/target
+frontend/test-output
+frontend/tests/e2e/reports
+frontend/tests/unit/coverage
+frontend/yarn-error.log
+frontend/yarn.lock
+security/target/
+
+!.mvn/wrapper/maven-wrapper.jar

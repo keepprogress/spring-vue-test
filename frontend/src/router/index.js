@@ -2,43 +2,42 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Hello from '@/components/Hello'
 import Bootstrap from '@/components/Bootstrap'
+import store from '@/store/index'
+
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'Hello',
-    component: Hello
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/bootstrap',
-    name: 'Bootstrap',
-    component: Bootstrap
-  },
-  {
-    path: '/user',
-    name: 'User',
-    component: () => import(/**/ '../components/User.vue')
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import(/**/ '../components/Login.vue')
-  }
-]
-
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+  mode: 'history', // uris without hashes #, see https://router.vuejs.org/guide/essentials/history-mode.html#html5-history-mode
+  routes: [
+    { path: '/', component: Hello },
+    { path: '/bootstrap', component: Bootstrap },
+    { path: '/user', component: () => import(/**/ '../components/User.vue') },
+    { path: '/login', component: () => import(/**/ '../components/Login.vue') },
+    {
+      path: '/protected',
+      component: () => import('../components/Protected.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    }
+    // otherwise redirect to home
+    // { path: '*', redirect: '/' }
+  ]
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!store.getters.isLoggedIn) {
+      next({
+        path: '/login'
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // make sure to always call next()!
+  }
+})
 export default router

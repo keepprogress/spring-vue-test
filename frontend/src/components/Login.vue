@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import api from './backend-api'
-
 export default {
   name: 'login',
 
@@ -41,15 +39,11 @@ export default {
   },
   methods: {
     callLogin () {
-      api.getSecured(this.user, this.password).then(response => {
-        console.log("Response: '" + response.data + "' with Statuscode " + response.status)
-        if (response.status === 200) {
-          this.loginSuccess = true
-        }
-      }).catch(error => {
-        console.log('Error: ' + error)
-        this.loginError = true
-      })
+      this.$store.dispatch('login', { user: this.user, password: this.password })
+        .then(() => this.$router.push('/'))
+        .catch(error => {
+          console.log('Error: ' + error)
+        })
     }
   }
 }

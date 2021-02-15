@@ -15,19 +15,17 @@
 </template>
 
 <script>
-import api from "./backend-api";
-
 export default {
-  name: "protected",
+  name: 'protected',
 
-  data() {
+  data () {
     return {
       loginSuccess: false,
-      error: false,
-    };
+      error: false
+    }
   },
   methods: {
     //
-  },
-};
+  }
+}
 </script>

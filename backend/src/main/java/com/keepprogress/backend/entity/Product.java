@@ -22,12 +22,16 @@ import lombok.Data;
 public class Product {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name = "category_id", nullable = false)
 	private ProductCategory category;
+	
+	@Column(name="title")
+	private String title;
 	
 	@Column(name="content")
 	private String content;
@@ -49,9 +53,6 @@ public class Product {
 	
 	@Column(name="price")
 	private int price;
-	
-	@Column(name="title")
-	private String title;
 	
 	@Column(name="unit")
 	private String unit;

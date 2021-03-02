@@ -55,15 +55,6 @@
                             <arguments>run build</arguments>
                         </configuration>
                     </execution>
-                    <!-- Run Unit tests with Jest -->
-					<execution>
-					<id>npm run test:unit</id>
-					<goals>
-						<goal>npm</goal>
-					</goals>
-					<phase>test</phase>
-					
-					</execution>
                 </executions>
             </plugin>
         </plugins>

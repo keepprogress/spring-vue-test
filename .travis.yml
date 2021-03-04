@@ -8,7 +8,7 @@ service:
   - mysql
 
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS `fullstack-ecommerce-app`; USE `full-stack-ecommerce;` CREATE USER 'ecommerce'@'localhost' IDENTIFIED BY 'ecommerce'; GRANT ALL PRIVILEGES ON * . * TO 'ecommerce'@'localhost';'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS `fullstack-ecommerce-app`; USE `full-stack-ecommerce`; CREATE USER 'ecommerce'@'localhost' IDENTIFIED BY 'ecommerce'; GRANT ALL PRIVILEGES ON * . * TO 'ecommerce'@'localhost';'
 
 script: mvn clean install
 

@@ -8,7 +8,9 @@ service:
   - mysql
 
 before_install:
-  - mysql -e 'CREATE SCHEMA IF NOT EXISTS `fullstack-ecommerce`; CREATE USER 'ecommerce'@'localhost' IDENTIFIED BY 'ecommerce'; GRANT ALL PRIVILEGES ON * . * TO 'ecommerce'@'localhost';'
+  - mysql -u root -e 'CREATE SCHEMA IF NOT EXISTS `full-stack-ecommerce`;'
+  - mysql -u root -e "CREATE USER IF NOT EXISTS 'ecommerce'@'localhost' IDENTIFIED BY 'ecommerce';"
+  - mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'ecommerce'@'localhost';"
 
 script: mvn clean install
 

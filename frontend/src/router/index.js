@@ -12,7 +12,8 @@ const router = new VueRouter({
     { path: '/', component: Hello },
     { path: '/bootstrap', component: Bootstrap },
     { path: '/user', component: () => import(/**/ '../components/User.vue') },
-    { path: '/login', component: () => import(/**/ '../components/Login.vue') },
+    { path: '/admin', component: () => import('../components/Dashboard.vue') },
+    { path: '/login', component: () => import(/**/ '../components/pages/Login.vue') },
     { path: '/about', component: () => import(/**/ '../views/About.vue') },
     {
       path: '/protected',
@@ -20,9 +21,9 @@ const router = new VueRouter({
       meta: {
         requiresAuth: true
       }
-    }
+    },
     // otherwise redirect to home
-    // { path: '*', redirect: '/' }
+    { path: '*', redirect: '/' }
   ]
 })
 
@@ -30,6 +31,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
+    console.log('Needs Authorization Here!')
     if (!store.getters.isLoggedIn) {
       next({
         path: '/login'

@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0a386c"],{"030c":function(e,t,n){"use strict";n.r(t);var a=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",[n("h1",[n("b-badge",{attrs:{variant:"success"}},[e._v("YEAH you made it!")])],1),n("h5",[e._v("If you're able to read this, you've successfully logged in and redirected to this protected site :)")])])},c=[],s={name:"protected",data:function(){return{}},methods:{}},r=s,u=n("2877"),o=Object(u["a"])(r,a,c,!1,null,null,null);t["default"]=o.exports}}]);
-//# sourceMappingURL=chunk-2d0a386c.f5ccaede.js.map
+//# sourceMappingURL=chunk-2d0a386c.bb18d5f9.js.map

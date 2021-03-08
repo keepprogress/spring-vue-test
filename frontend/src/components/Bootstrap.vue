@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import api from './backend-api'
+import api from '../utils/backend-api'
 
 export default {
   name: 'bootstrap',

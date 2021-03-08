@@ -1,3 +1,5 @@
+//Variable overrides must come after our functions, variables, and mixins are imported, but before the rest of the imports.
+//see https://getbootstrap.com/docs/5.0/customize/sass/#variable-defaults
 @import "~bootstrap/scss/functions";
 @import "./helpers/_variables";
 @import "./_dashboard";

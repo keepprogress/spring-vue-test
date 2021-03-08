@@ -12,9 +12,20 @@ const router = new VueRouter({
     { path: '/', component: Hello },
     { path: '/bootstrap', component: Bootstrap },
     { path: '/user', component: () => import(/**/ '../components/User.vue') },
-    { path: '/admin', component: () => import('../components/Dashboard.vue') },
     { path: '/login', component: () => import(/**/ '../components/pages/Login.vue') },
     { path: '/about', component: () => import(/**/ '../views/About.vue') },
+    {
+      path: '/admin',
+      component: () => import('../components/Dashboard.vue'),
+      children: [
+        {
+          path: 'products',
+          name: 'Products',
+          component: () => import('../components/pages/Products.vue')
+
+        }
+      ]
+    },
     {
       path: '/protected',
       component: () => import('../components/Protected.vue'),

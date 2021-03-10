@@ -13,10 +13,19 @@
       </li>
     </ul>
     <h3>This site contains more stuff :)</h3>
-    <div class="row">
-      <button type="button" class="btn btn-danger"><router-link to="login">Administrater or Authorized User click here</router-link></button>
-      <button type="button" class="btn btn-info"><router-link to="admin/products">Operation staff click here(doesn't require password)</router-link></button>
-    </div>
+    <div class="col">
+      <div>
+        <button type="button" class="btn btn-danger">
+          <router-link to="login">Administrater or Authorized User click here</router-link>
+        </button>
+      </div>
+      <div>
+
+      </div>
+        <button type="button" class="btn btn-info">
+          <router-link to="admin/products">Operation staff click here(doesn't require password)</router-link>
+        </button>
+      </div>
   </div>
 </template>
 

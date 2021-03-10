@@ -11,6 +11,7 @@ before_install:
   - mysql -u root -e 'CREATE SCHEMA IF NOT EXISTS `full-stack-ecommerce`;'
   - mysql -u root -e "CREATE USER IF NOT EXISTS 'ecommerce'@'localhost' IDENTIFIED BY 'ecommerce';"
   - mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'ecommerce'@'localhost';"
+  - mysql -u root -e "USE `full-stack-ecommerce`;"
 
 script: mvn clean install
 

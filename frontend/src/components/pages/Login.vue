@@ -23,8 +23,8 @@
     </form> -->
     <form @submit.prevent="callLogin()">
     <h1 class="h3 mb-3 fw-normal">請登入</h1>
-    <label for="inputEmail" class="visually-hidden">Username</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Username" v-model="user" required autofocus>
+    <label for="inputUser" class="visually-hidden">Username</label>
+    <input type="username" id="inputUser" class="form-control" placeholder="Username" v-model="user" required autofocus>
     <label for="inputPassword" class="visually-hidden">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" v-model="password" required>
     <div class="checkbox mb-3">
@@ -54,7 +54,7 @@ export default {
   methods: {
     callLogin () {
       this.$store.dispatch('login', { user: this.user, password: this.password })
-        .then(() => this.$router.push('/protected'))
+        .then(() => this.$router.push('/admin/protected'))
         .catch(error => {
           console.log('Vuex store state.loginSuccess: ' + this.$store.state.loginSuccess + ' Vuex store state.loginError ' + this.$store.state.loginError)
           console.log('Error: ' + error)

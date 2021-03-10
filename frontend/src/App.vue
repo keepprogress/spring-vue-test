@@ -1,19 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Hello</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to ="/bootstrap">Bootstrap</router-link> |
-      <router-link to ="/user">User</router-link>|
-      <router-link to ="/protected">Protected</router-link>|
-      <router-link to ="/login">Login</router-link>
-    </div>
-    <router-view :hellomsg="msg"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'app',
   data () {

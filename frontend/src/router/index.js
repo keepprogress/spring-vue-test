@@ -10,10 +10,7 @@ const router = new VueRouter({
   mode: 'history', // uris without hashes #, see https://router.vuejs.org/guide/essentials/history-mode.html#html5-history-mode
   routes: [
     { path: '/', component: Hello },
-    { path: '/bootstrap', component: Bootstrap },
-    { path: '/user', component: () => import(/**/ '../components/User.vue') },
     { path: '/login', component: () => import(/**/ '../components/pages/Login.vue') },
-    { path: '/about', component: () => import(/**/ '../views/About.vue') },
     {
       path: '/admin',
       component: () => import('../components/Dashboard.vue'),
@@ -22,16 +19,18 @@ const router = new VueRouter({
           path: 'products',
           name: 'Products',
           component: () => import('../components/pages/Products.vue')
-
+        },
+        { path: 'bootstrap', component: Bootstrap },
+        { path: 'user', component: () => import(/**/ '../components/User.vue') },
+        { path: 'about', component: () => import(/**/ '../views/About.vue') },
+        {
+          path: 'protected',
+          component: () => import('../components/Protected.vue'),
+          meta: {
+            requiresAuth: true
+          }
         }
       ]
-    },
-    {
-      path: '/protected',
-      component: () => import('../components/Protected.vue'),
-      meta: {
-        requiresAuth: true
-      }
     },
     // otherwise redirect to home
     { path: '*', redirect: '/' }

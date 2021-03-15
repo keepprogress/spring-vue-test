@@ -2,7 +2,7 @@ import axios2 from 'axios'
 
 const magicapi = axios2.create({
   baseURL: '/magic-api',
-  timeout: 2600
+  timeout: 3500
 })
 
 export default {

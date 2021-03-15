@@ -46,3 +46,4 @@ frontend/yarn.lock
 security/target/
 
 !.mvn/wrapper/maven-wrapper.jar
+/target/

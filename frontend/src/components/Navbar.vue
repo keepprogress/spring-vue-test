@@ -4,7 +4,6 @@
       <router-link to="/">Hello</router-link> |
       <router-link to="/admin/about">About</router-link> |
       <router-link to ="/admin/bootstrap">Bootstrap</router-link> |
-      <router-link to ="/admin/user">User</router-link>|
       <router-link to ="/admin/protected">Protected</router-link>|
       <router-link to ="/login">Login</router-link>
     </div>

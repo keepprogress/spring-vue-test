@@ -1,6 +1,7 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
+    <!-- marked loading cus we are not ready to use vue-loading-overlay -->
+    <!-- <loading :active.sync="isLoading"></loading> -->
     <div class="text-right mt-4">
       <button class="btn btn-primary" @click="openModal(true)">
         建立新的產品
@@ -130,12 +131,13 @@
                       v-if="status.fileUploading"
                     ></i>
                   </label>
+                  <!-- temporary deleted @change="uploadFile" for skip error.
+                  Will add it back after uploadFile method complete-->
                   <input
                     type="file"
                     id="customFile"
                     class="form-control"
                     ref="files"
-                    @change="uploadFile"
                   />
                 </div>
                 <img

@@ -21,7 +21,6 @@ const router = new VueRouter({
           component: () => import('../components/pages/Products.vue')
         },
         { path: 'bootstrap', component: Bootstrap },
-        { path: 'user', component: () => import(/**/ '../components/User.vue') },
         { path: 'about', component: () => import(/**/ '../views/About.vue') },
         {
           path: 'protected',

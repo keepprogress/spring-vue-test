@@ -6,6 +6,27 @@
       <br />
       <h1>關於天龍書局後台系統</h1>
       <br />
+      <br />
+      <h2 align="left">登入系統</h2>
+      <br />
+      <br />
+      <h5 align="left">本專案採用Vuex管理登入狀態
+      <br />
+      帳號為 mike
+      <br />
+      密碼為 miller
+      <br />
+      成功後會看到畫面
+      </h5>
+      <img src="./../assets/login_success_img.png" alt="成功畫面">
+      <br />
+      <h5 align="left">註: 由於登入系統沒有用到session 或 cookie
+      <br />
+      重新整理頁面後, 進入需要授權的頁面需要重新登入
+      </h5>
+      <br />
+      <br />
+      <h2 align="left">CRUD</h2>
       <h5 align="left">
         本專案採用Spring-Data-Rest 與 Spring-Data-JPA
         <br />

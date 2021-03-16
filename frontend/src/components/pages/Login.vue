@@ -1,26 +1,5 @@
 <template>
-  <div class="protected" v-if="loginSuccess">
-    <h1>
-      <b-badge variant="success">Access to protected site granted!</b-badge>
-    </h1>
-    <h5>If you're able to read this, you've successfully logged in.</h5>
-  </div>
-  <div class="unprotected" v-else-if="loginError">
-    <h1>
-      <b-badge variant="danger">You don't have rights here, mate :D</b-badge>
-    </h1>
-    <h5>Seams that you don't have access rights...</h5>
-  </div>
-  <div class="unprotected form-signin" v-else>
-    <!-- <h1><b-badge variant="info">Please login to get access!</b-badge></h1>
-    <h5>You're not logged in - so you don't see much here. Try to log in:</h5> -->
-
-    <!-- <form @submit.prevent="callLogin()">
-      <input type="text" placeholder="username" v-model="user" />
-      <input type="password" placeholder="password" v-model="password" />
-      <b-btn variant="success" type="submit">Login</b-btn>
-      <p v-if="error" class="error">Bad login information</p>
-    </form> -->
+  <div class="form-signin">
     <form @submit.prevent="callLogin()">
     <h1 class="h3 mb-3 fw-normal">請登入</h1>
     <label for="inputUser" class="visually-hidden">Username</label>

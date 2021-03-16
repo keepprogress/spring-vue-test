@@ -11,7 +11,7 @@
       <table class="table mt-4">
         <thead>
           <tr>
-            <th class="col-1-sm">分類</th>
+            <!-- <th class="col-1-sm">分類</th> -->
             <th class="col-2-sm">產品名稱</th>
             <th class="col-1-sm">原價</th>
             <th class="col-1-sm">售價</th>
@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr v-for="item in products" :key="item.id">
-            <td>{{ item.category }}</td>
+            <!-- <td>{{ item.category }}</td> -->
             <td>{{ item.title }}</td>
             <td class="text-right">
               {{ item.origin_price | currency }}
@@ -30,7 +30,7 @@
               {{ item.price | currency }}
             </td>
             <td>
-              <span v-if="item.is_enabled" class="text-success">啟用</span>
+              <span v-if="item._enabled" class="text-success">啟用</span>
               <span v-else>未啟用</span>
             </td>
             <td>
@@ -287,10 +287,10 @@ export default {
   },
   methods: {
     getProducts () {
-    //   const vm = this
+      const vm = this
       magicapi.getProducts().then((response) => {
         console.log(response)
-        // vm.products = response.data.products;
+        vm.products = response.data._embedded.products
         // vm.pagination = response.data.pagination;
       })
     },

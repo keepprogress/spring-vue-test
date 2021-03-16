@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "4df66f17-4e62-4a6e-baae-3d5b702cbd32",
+		"name": "spring-vue-test-heruko-demo-CRUD-products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products-GET-METHOD",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"神奇的肝膽排石法\",\r\n    \"content\": \"肝膽排石靠這本!\",\r\n    \"description\": \"人氣網紅兼台大總醫師倉籃戈推薦\",\r\n    \"imageUrl\": \"src/assets/images/placeholder.png\",\r\n    \"num\": 1,\r\n    \"origin_price\": 1680,\r\n    \"price\": 1680,\r\n    \"unit\": \"本\",\r\n    \"dateCreated\": \"2021-03-15\",\r\n    \"lastUpdated\": null,\r\n    \"_enabled\": true,\r\n    \"category\": \"http://localhost:8098/magic-api/product-category/1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://spring-vue-heroku-demo.herokuapp.com/magic-api/products",
+					"protocol": "https",
+					"host": [
+						"spring-vue-heroku-demo",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"magic-api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products-PUT-METHOD",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"測試待刪除ID2\",\r\n    \"content\": \"肝膽排石靠這本!\",\r\n    \"description\": \"人氣網紅兼台大總醫師倉籃戈推薦\",\r\n    \"imageUrl\": \"src/assets/images/placeholder.png\",\r\n    \"num\": 1,\r\n    \"origin_price\": 1680,\r\n    \"price\": 1680,\r\n    \"unit\": \"本\",\r\n    \"dateCreated\": \"2021-03-15\",\r\n    \"lastUpdated\": null,\r\n    \"_enabled\": true,\r\n    \"category\": \"http://localhost:8098/magic-api/product-category/1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://spring-vue-heroku-demo.herokuapp.com/magic-api/products/2",
+					"protocol": "https",
+					"host": [
+						"spring-vue-heroku-demo",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"magic-api",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products-DELETE-METHOD",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"神奇的肝膽排石法\",\r\n    \"content\": \"肝膽排石靠這本!\",\r\n    \"description\": \"人氣網紅兼台大總醫師倉籃戈推薦\",\r\n    \"imageUrl\": \"src/assets/images/placeholder.png\",\r\n    \"num\": 1,\r\n    \"origin_price\": 1680,\r\n    \"price\": 1680,\r\n    \"unit\": \"本\",\r\n    \"dateCreated\": \"2021-03-15\",\r\n    \"lastUpdated\": null,\r\n    \"_enabled\": true,\r\n    \"category\": \"http://localhost:8098/magic-api/product-category/1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8098/magic-api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8098",
+					"path": [
+						"magic-api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products-POST-METHOD",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"神奇的肝膽排石法\",\r\n    \"content\": \"肝膽排石靠這本!\",\r\n    \"description\": \"人氣網紅兼台大總醫師倉籃戈推薦\",\r\n    \"imageUrl\": \"src/assets/images/placeholder.png\",\r\n    \"num\": 1,\r\n    \"origin_price\": 1680,\r\n    \"price\": 1680,\r\n    \"unit\": \"本\",\r\n    \"dateCreated\": \"2021-03-15\",\r\n    \"lastUpdated\": null,\r\n    \"_enabled\": true,\r\n    \"category\": \"https://spring-vue-heroku-demo.herokuapp.com/magic-api/product-category/1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://spring-vue-heroku-demo.herokuapp.com/magic-api/products",
+					"protocol": "https",
+					"host": [
+						"spring-vue-heroku-demo",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"magic-api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

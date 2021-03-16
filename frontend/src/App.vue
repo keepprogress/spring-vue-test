@@ -9,7 +9,7 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to your Vue.js powered Spring Boot App'
+      msg: '歡迎蒞臨天龍書局Spring-Vue後台系統'
     }
   }
 }

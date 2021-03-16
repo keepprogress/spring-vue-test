@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
-    <img src="./../assets/spring-boot-vuejs-logo.png" />
+    <img src="./../../assets/spring-boot-vuejs-logo.png" />
     <h1>{{ hellomsg }}</h1>
-    <h2>See the sources here:</h2>
+    <h2>詳細Readme請至專案github:</h2>
     <ul>
       <li>
         <a
@@ -12,20 +12,16 @@
         >
       </li>
     </ul>
-    <h3>This site contains more stuff :)</h3>
+    <h3>請選擇欲跳轉頁面</h3>
     <div class="col">
       <div>
-        <button type="button" class="btn btn-danger">
-          <router-link to="login">Administrater or Authorized User click here</router-link>
-        </button>
+        <button type="button" class="btn btn-info" @click="$router.push('/admin/about')">About this application</button>
+        <br />
+        <button type="button" class="btn btn-warning" @click="$router.push('/login')">Click to login</button>
+        <br />
+        <button type="button" class="btn btn-success" @click="$router.push('/admin/products')">Go to products page (no password)</button>
       </div>
-      <div>
-
-      </div>
-        <button type="button" class="btn btn-info">
-          <router-link to="admin/products">Operation staff click here(doesn't require password)</router-link>
-        </button>
-      </div>
+    </div>
   </div>
 </template>
 

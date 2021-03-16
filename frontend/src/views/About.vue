@@ -69,7 +69,7 @@
         <br />
         <a href="https://github.com/keepprogress/spring-vue-test/tree/master/backend/postmanCollectionFiles/spring-vue-test-heruko-demo-CRUD-products.postman_collection.json">product-CRUD-collection</a>
         <br />
-        <a href="https://github.com/keepprogress/spring-vue-test/tree/master/backend/postmanCollectionFiles/spring-vue-test-heroku-demo-CRUD-product-category.postman_collectio.json">product-category-CRUD-collection</a>
+        <a href="https://github.com/keepprogress/spring-vue-test/blob/master/backend/postmanCollectionFiles/spring-vue-test-heroku-demo-CRUD-product-category.postman_collection.json">product-category-CRUD-collection</a>
       </h5>
       <br />
       <h5 align="left">點擊 File >>>> Import</h5>

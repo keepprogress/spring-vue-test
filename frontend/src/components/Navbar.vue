@@ -4,7 +4,6 @@
       <router-link to="/">Hello</router-link> |
       <router-link to="/admin/about">About</router-link> |
       <router-link to ="/admin/bootstrap">Bootstrap</router-link> |
-      <router-link to ="/admin/protected">Protected</router-link>|
       <router-link to ="/login">Login</router-link>
     </div>
      <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">

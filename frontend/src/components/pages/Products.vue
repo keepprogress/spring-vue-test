@@ -45,7 +45,7 @@
                 class="btn btn-outline-danger btn-sm"
                 @click="deleteProduct(item.id)"
               >
-                <i class="far fa-trash-alt"></i>
+                <i class="fas fa-trash-alt"></i>
               </button>
             </td>
           </tr>

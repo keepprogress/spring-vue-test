@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Hello from '@/components/Hello'
+import Hello from '@/components/pages/Hello'
 import Bootstrap from '@/components/Bootstrap'
 import store from '@/store/index'
 
@@ -24,7 +24,7 @@ const router = new VueRouter({
         { path: 'about', component: () => import(/**/ '../views/About.vue') },
         {
           path: 'protected',
-          component: () => import('../components/Protected.vue'),
+          component: () => import('../components/pages/Protected.vue'),
           meta: {
             requiresAuth: true
           }

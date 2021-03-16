@@ -8,6 +8,8 @@ import './assets/all.scss'
 import store from './store/index'
 import CurrencyFilter from './filters/currency.js'
 import DateFilter from './filters/date.js'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)

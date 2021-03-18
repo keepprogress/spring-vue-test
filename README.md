@@ -1,378 +1,94 @@
 # spring-vue-test
 
 [![BuildStatus](https://travis-ci.com/keepprogress/spring-vue-test.svg?branch=master)](https://travis-ci.com/keepprogress/spring-vue-test)
-[![versionspringboot](https://img.shields.io/badge/dynamic/xml?color=brightgreen&url=https://raw.githubusercontent.com/jonashackt/spring-boot-vuejs/master/pom.xml&query=%2F%2A%5Blocal-name%28%29%3D%27project%27%5D%2F%2A%5Blocal-name%28%29%3D%27parent%27%5D%2F%2A%5Blocal-name%28%29%3D%27version%27%5D&label=springboot)](https://github.com/spring-projects/spring-boot)
-[![versionjava](https://img.shields.io/badge/jdk-8,_9,_11-brightgreen.svg?logo=java)](https://github.com/spring-projects/spring-boot)
-[![versionvuejs](https://img.shields.io/badge/dynamic/json?color=brightgreen&url=https://raw.githubusercontent.com/jonashackt/spring-boot-vuejs/master/frontend/package.json&query=$.dependencies.vue&label=vue&logo=vue.js)](https://vuejs.org/)
-[![versionnodejs](https://img.shields.io/badge/dynamic/xml?color=brightgreen&url=https://raw.githubusercontent.com/jonashackt/spring-boot-vuejs/master/frontend/pom.xml&query=%2F%2A%5Blocal-name%28%29%3D%27project%27%5D%2F%2A%5Blocal-name%28%29%3D%27build%27%5D%2F%2A%5Blocal-name%28%29%3D%27plugins%27%5D%2F%2A%5Blocal-name%28%29%3D%27plugin%27%5D%2F%2A%5Blocal-name%28%29%3D%27executions%27%5D%2F%2A%5Blocal-name%28%29%3D%27execution%27%5D%2F%2A%5Blocal-name%28%29%3D%27configuration%27%5D%2F%2A%5Blocal-name%28%29%3D%27nodeVersion%27%5D&label=nodejs&logo=node.js)](https://nodejs.org/en/)
-[![versionwebpack](https://img.shields.io/badge/dynamic/json?color=brightgreen&url=https://raw.githubusercontent.com/jonashackt/spring-boot-vuejs/master/frontend/package-lock.json&query=$.dependencies.webpack.version&label=webpack&logo=webpack)](https://webpack.js.org/)
-[![versionaxios](https://img.shields.io/badge/dynamic/json?color=brightgreen&url=https://raw.githubusercontent.com/jonashackt/spring-boot-vuejs/master/frontend/package.json&query=$.dependencies.axios&label=axios)](https://github.com/axios/axios)
-## Table of Contents  
+[![versionspringboot](https://img.shields.io/badge/dynamic/xml?color=informational&url=https://raw.githubusercontent.com/keepprogress/spring-vue-test/master/pom.xml&query=%2F%2A%5Blocal-name%28%29%3D%27project%27%5D%2F%2A%5Blocal-name%28%29%3D%27parent%27%5D%2F%2A%5Blocal-name%28%29%3D%27version%27%5D&label=springboot)](https://github.com/spring-projects/spring-boot)
+[![versionjava](https://img.shields.io/badge/jdk-8,_9,_11-critical.svg?logo=java)](https://github.com/spring-projects/spring-boot)
+[![versionvuejs](https://img.shields.io/badge/dynamic/json?color=yellow&url=https://raw.githubusercontent.com/keepprogress/spring-vue-test/master/frontend/package.json&query=$.dependencies.vue&label=vue&logo=vue.js)](https://vuejs.org/)
+[![versionnodejs](https://img.shields.io/badge/dynamic/xml?color=blueviolet&url=https://raw.githubusercontent.com/keepprogress/spring-vue-test/master/frontend/pom.xml&query=%2F%2A%5Blocal-name%28%29%3D%27project%27%5D%2F%2A%5Blocal-name%28%29%3D%27build%27%5D%2F%2A%5Blocal-name%28%29%3D%27plugins%27%5D%2F%2A%5Blocal-name%28%29%3D%27plugin%27%5D%2F%2A%5Blocal-name%28%29%3D%27executions%27%5D%2F%2A%5Blocal-name%28%29%3D%27execution%27%5D%2F%2A%5Blocal-name%28%29%3D%27configuration%27%5D%2F%2A%5Blocal-name%28%29%3D%27nodeVersion%27%5D&label=nodejs&logo=node.js)](https://nodejs.org/en/)
+[![versionwebpack](https://img.shields.io/badge/dynamic/json?color=blue&url=https://raw.githubusercontent.com/keepprogress/spring-vue-test/master/frontend/package-lock.json&query=$.dependencies.webpack.version&label=webpack&logo=webpack)](https://webpack.js.org/)
+[![versionaxios](https://img.shields.io/badge/dynamic/json?color=red&url=https://raw.githubusercontent.com/keepprogress/spring-vue-test/master/frontend/package.json&query=$.dependencies.axios&label=axios)](https://github.com/axios/axios)
+## 目錄  
 
-* [Setup Vue.js & Spring Boot](#setup-vuejs--spring-boot)
-* [Project setup](#project-setup)
-* [Backend](#backend)
-* [Frontend](#frontend)
-  * [Use frontend-maven-plugin to handle NPM, Node, Bower, Grunt, Gulp, Webpack and so on :)](#use-frontend-maven-plugin-to-handle-npm-node-bower-grunt-gulp-webpack-and-so-on-)
-* [First App run](#first-app-run)
-* [Faster feedback with webpack-dev-server](#faster-feedback-with-webpack-dev-server)
-* [Browser developer tools extension](#browser-developer-tools-extension)
-* [HTTP calls from Vue.js to (Spring Boot) REST backend](#http-calls-from-vuejs-to-spring-boot-rest-backend)
-  * [The problem with SOP](#the-problem-with-sop)
-  * [Enabling Axios CORS support](#enabling-axios-cors-support)
-  * [Enabling Spring Boot CORS support](#enabling-spring-boot-cors-support)
-  * [But STOP! Webpack & Vue have something much smarter for us to help us with SOP!](#but-stop-webpack--vue-have-something-much-smarter-for-us-to-help-us-with-sop)
-* [Using history mode for nicer URLs](#using-history-mode-for-nicer-urls)
-* [Bootstrap & Vue.js](#bootstrap--vuejs)
+* [專案簡介](#專案簡介)
+* [專案結構](#專案結構)
+* [技術運用選擇](#技術運用選擇)
+  * [後端技術](#後端技術)
+  * [前端技術](#前端技術)
+  * [技術細節](#技術細節)
+    * [後端運行前端轉譯檔案](#後端運行前端轉譯檔案)
+    * [解決CORS](#解決cors)
+    * [切換遠端資料庫以及本機資料庫連線](#切換遠端資料庫以及本機資料庫連線)
+    * [解決SEQUENCE與IDENTITY切換](#解決sequence與identity切換)
+* [如何在作業系統上運行](#如何在作業系統上運行)
+  * [前置作業](#前置作業)
+    * [Windows(前後端分離)](#windows前後端分離)
+    * [Linux (後端+前端轉譯後檔案)](#linux後端前端轉譯後檔案)
+  * [資料庫以及使用者創建](#資料庫以及使用者創建)
+  * [運行](#運行)
+    * [在WINDOWS運行](#在windows運行)
+    * [在Linux運行](#在linux運行)
+    * [運行Nightwatch End2End test](#運行nightwatchend2endtest已從運行script移除但可手動運行)
 
-## Setup Vue.js & Spring Boot
-
-### Prerequisites
-
-#### MacOSX
-
+## 專案簡介
 ```
-brew install node
-npm install -g @vue/cli
-```
-
-#### Linux
-
-```
-sudo apt update
-sudo apt install node
-npm install -g @vue/cli
+使用Spring-boot 及 Vue 簡易架設自動部屬電商網站，包含中文資料庫CRUD功能。
+使用Vuex以及spring security簡易登入系統做no session, stateless的簡易登入。
+專案架構採取前後端分離，使用maven-frontend-plugin確保每個部屬或測試環境的node 與 npm 版本相同，
+新環境運行不需要全域安裝node及npm (前端開發時自行全域安裝node與npm)
 ```
 
-#### Windows
-
-```
-choco install npm
-npm install -g @vue/cli
-```
-
-## Project setup
+## 專案結構
 
 ```
 spring-boot-vuejs
-├─┬ backend     → backend module with Spring Boot code
+├─┬ backend     → 後端 module (Spring Boot)
 │ ├── src
-│ └── pom.xml
-├─┬ frontend    → frontend module with Vue.js code
+│ └── pom.xml   → 後端 dependency
+├─┬ frontend    → 前端 module (Vue)
 │ ├── src
-│ └── pom.xml
-└── pom.xml     → Maven parent pom managing both modules
+│ └── pom.xml   → 前端 frontend-maven-plugin
+└── pom.xml     → Maven parent pom
 ```
 
-## Backend
+## 技術運用選擇
 
-Go to https://start.spring.io/ and initialize a Spring Boot app with `Web` and `Actuator`. Place the zip’s contents in the backend folder.
+### 後端技術
+| framework or dependency | description                                             | 
+| ----------------------- | ------------------------------------------------------- | 
+| SpringBoot              | MVC框架                                                 | 
+| SpringSecurity          | 認證授權框架                                            | 
+| Spring-Boot Devtools    | 開發者工具(更改後端代碼免重啟)                          |
+| Spring-Data-Rest        | 提供Spring-Data-Repository endpoints                    |     
+| Spring Boot Actuator    | 內部監控(網站健康狀況、Bean生命週期及endpoints)         |
+| Spring Data JPA         | ORM(可連接多個datasource、減少sql語句、entity對應資料庫)|
+| PostgreSQL              | 產品環境使用遠端資料庫連接                              |
+| MySQL-connecter-java    | 連接本機MySQL資料庫                                     |
+| Heroku                  | 雲端部屬服務                                            |
+| Travis CI               | 持續整合(unit Test)                                     |
+| Lombok                  | 簡化封裝工具(免下getter setter)                         |
 
-Customize pom to copy content from Frontend for serving it later with the embedded Tomcat:
+### 前端技術
+| framework or package       | description                                   | 
+| -------------------------- | --------------------------------------------- | 
+| Vue                        | 前端框架                                      |
+| Vue-router                 | 路由框架                                      |
+| Vue-cli                    | webpack based開發懶人包(快速創建默認配置專案) |
+| Vuex                       | 全局狀態管理框架                              | 
+| Axios                      | 前端HTTP框架                                  |
+| Bootstrap-vue              | bootstrap-vue整合                             |
+| Jest                       | 前端單元測試                                  |
+| nightwatch                 | 端對端測試    
 
-```xml
-<build>
-  <plugins>
-    <plugin>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-maven-plugin</artifactId>
-    </plugin>
-    <plugin>
-      <artifactId>maven-resources-plugin</artifactId>
-      <executions>
-        <execution>
-          <id>copy Vue.js frontend content</id>
-          <phase>generate-resources</phase>
-          <goals>
-            <goal>copy-resources</goal>
-          </goals>
-          <configuration>
-            <outputDirectory>src/main/resources/public</outputDirectory>
-            <overwrite>true</overwrite>
-            <resources>
-              <resource>
-                <directory>${project.parent.basedir}/frontend/target/dist</directory>
-                <includes>
-                  <include>static/</include>
-                  <include>index.html</include>
-                  <include>favicon.ico</include>
-                </includes>
-              </resource>
-            </resources>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
-  </plugins>
-</build>
+
+### 技術細節
+
+#### 後端運行前端轉譯檔案
+```
+使用maven-resource-plugin將frontend/target/dist內檔案複製到
+backend/src/main/resources/public
 ```
 
-
-## Frontend
-
-Creating our `frontend` project is done by the slightly changed (we use `--no-git` here, because our parent project is already a git repository and otherwise vue CLI 3 would initialize an new one):
-
-```
-vue create frontend --no-git
-```
-
-see https://cli.vuejs.org/guide/
-
-This will initialize a project skeleton for Vue.js in /frontend directory - it, therefore, asks some questions in the cli:
-
-![vuejs-cli3-create](screenshots/vuejs-cli3-create.png)
-
-__Do not__ choose the default preset with `default (babel, eslint)`, because we need some more plugins for our project here (choose the Plugins with the __space bar__):
-
-![vuejs-cli3-select-plugins](screenshots/vuejs-cli3-select-plugins.png)
-
-You can now also use the new `vue ui` command/feature to configure your project:
-
-![vue-ui](screenshots/vue-ui.png)
-
-If you want to learn more about installing Vue.js, head over to the docs: https://vuejs.org/v2/guide/installation.html
-
-
-### Use frontend-maven-plugin to handle NPM, Node, Bower, Grunt, Gulp, Webpack and so on :)
-
-If you’re a backend dev like me, this Maven plugin here https://github.com/eirslett/frontend-maven-plugin is a great help for you - because, if you know Maven, that’s everything you need! Just add this plugin to the frontend’s `pom.xml`:
-
-```xml
-<build>
-    <plugins>
-        <plugin>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <version>${frontend-maven-plugin.version}</version>
-            <executions>
-                <!-- Install our node and npm version to run npm/node scripts-->
-                <execution>
-                    <id>install node and npm</id>
-                    <goals>
-                        <goal>install-node-and-npm</goal>
-                    </goals>
-                    <configuration>
-                        <nodeVersion>v10.10.0</nodeVersion>
-                    </configuration>
-                </execution>
-                <!-- Install all project dependencies -->
-                <execution>
-                    <id>npm install</id>
-                    <goals>
-                        <goal>npm</goal>
-                    </goals>
-                    <!-- optional: default phase is "generate-resources" -->
-                    <phase>generate-resources</phase>
-                    <!-- Optional configuration which provides for running any npm command -->
-                    <configuration>
-                        <arguments>install</arguments>
-                    </configuration>
-                </execution>
-                <!-- Build and minify static files -->
-                <execution>
-                    <id>npm run build</id>
-                    <goals>
-                        <goal>npm</goal>
-                    </goals>
-                    <configuration>
-                        <arguments>run build</arguments>
-        </configuration>
-                </execution>
-            </executions>
-        </plugin>
-    </plugins>
-</build>
-```
-
-### Tell Webpack to output the dist/ contents to target/
-
-Commonly, node projects will create a dist/ directory for builds which contains the minified source code of the web app - but we want it all in `/target`. Therefore we need to create the optional [vue.config.js](https://cli.vuejs.org/config/#vue-config-js) and configure the `outputDir` and `assetsDir` correctly: 
-
-```javascript
-module.exports = {
-  ...
-  // Change build paths to make them Maven compatible
-  // see https://cli.vuejs.org/config/
-  outputDir;: 'target/dist',
-  assetsDir;: 'static';
-}
-```
-
-
-## First App run
-
-Inside the root directory, do a: 
-
-```
-mvn clean install
-```
-
-Run our complete Spring Boot App:
-
-```
-mvn --projects backend spring-boot:run
-```
-
-Now go to http://localhost:8098/ and have a look at your first Vue.js Spring Boot App.
-
-
-
-## Faster feedback with webpack-dev-server
-
-The webpack-dev-server, which will update and build every change through all the parts of the JavaScript build-chain, is pre-configured in Vue.js out-of-the-box! So the only thing needed to get fast feedback development-cycle is to cd into `frontend` and run:
-
-```
-npm run serve
-```
-
-That’s it! 
-
-
-## Browser developer tools extension
-
-Install vue-devtools Browser extension https://github.com/vuejs/vue-devtools and get better feedback, e.g. in Chrome:
-
-![vue-devtools-chrome](screenshots/vue-devtools-chrome.png)
-
-
-## IntelliJ integration
-
-There's a blog post: https://blog.jetbrains.com/webstorm/2018/01/working-with-vue-js-in-webstorm/
-
-Especially the `New... Vue Component` looks quite cool :)
-
-
-
-## HTTP calls from Vue.js to (Spring Boot) REST backend
-
-Prior to Vue 2.0, there was a build in solution (vue-resource). But from 2.0 on, 3rd party libraries are necessary. One of them is [Axios](https://github.com/mzabriskie/axios) - also see blog post https://alligator.io/vuejs/rest-api-axios/
-
-```
-npm install axios --save
-```
-
-Calling a REST service with Axios is simple. Go into the script area of your component, e.g. Hello.vue and add:
-
-```js
-import axios from 'axios'
-
-data ();{
-  return {
-    response: [],
-    errors: []
-  }
-},
-
-callRestService ();{
-  axios.get(`api/hello`)
-    .then(response => {
-      // JSON responses are automatically parsed.
-      this.response = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-}
-}
-```
-
-In your template area you can now request a service call via calling `callRestService()` method and access `response` data:
-
-```html
-<button class=”Search__button” @click="callRestService()">CALL Spring Boot REST backend service</button>
-
-<h3>{{ response }}</h3>
-```
-
-### The problem with SOP
-
-Single-Origin Policy (SOP) could be a problem if we want to develop our app. Because the webpack-dev-server runs on http://localhost:8080 and our Spring Boot REST backend on http://localhost:8098.
-
-We need to use Cross-Origin Resource Sharing Protocol (CORS) to handle that (read more background info about CORS here https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
-
-
-#### Enabling Axios CORS support
-
-Create a central Axios configuration file called `http-commons.js`:
-
-```js
-import axios from 'axios'
-
-export const AXIOS = axios.create({
-  baseURL: `http://localhost:8098`,
-  headers: {
-    'Access-Control-Allow-Origin': 'http://localhost:8080'
-  }
-})
-```
-
-Here we allow requests to the base URL of our Spring Boot App on port 8098 to be accessible from 8080.
-
-Now we could use this configuration inside our Components, e.g. in `Hello.vue`:
-```js
-import {AXIOS} from './http-common'
-
-export default {
-  name: 'hello',
-
-  data () {
-    return {
-      posts: [],
-      errors: []
-    }
-  },
-  methods: {
-    // Fetches posts when the component is created.
-    callRestService () {
-      AXIOS.get(`hello`)
-        .then(response => {
-          // JSON responses are automatically parsed.
-          this.posts = response.data
-        })
-        .catch(e => {
-          this.errors.push(e)
-        })
-    }
-  }
-```
-
-#### Enabling Spring Boot CORS support
-
-Additionally, we need to configure our Spring Boot backend to answer with the appropriate CORS HTTP Headers in its responses (there's a good tutorial here: https://spring.io/guides/gs/rest-service-cors/). Therefore we add the annotation `@CrossOrigin` to our BackendController:
-
-```java
-@CrossOrigin(origins = "http://localhost:8080")
-@RequestMapping(path = "/hello")
-public @ResponseBody String sayHello() {
-    LOG.info("GET called on /hello resource");
-    return HELLO_TEXT;
-}
-```
-
-Now our Backend will respond CORS-enabled and will accept requests from 8080. But as this only enables CORS on one method, we have to repeatedly add this annotation to all of our REST endpoints, which isn’t a nice style. We should use a global solution to allow access with CORS enabled to all of our REST resources. This could be done in the `SpringBootVuejsApplication.class`:
-
-```java
-// Enable CORS globally
-@Bean
-public WebMvcConfigurer corsConfigurer() {
-  return new WebMvcConfigurerAdapter() {
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-      registry.addMapping("/api/*").allowedOrigins("http://localhost:8080");
-    }
-  };
-}
-```
-
-Now all calls to resources behind `api/` will return the correct CORS headers. 
-
-
-#### But STOP! Webpack & Vue have something much smarter for us to help us with SOP!
-
-Thanks to my colleague [Daniel](https://www.codecentric.de/team/dre/) who pointed me to the nice proxying feature of Webpack dev-server, we don't need to configure all the complex CORS stuff anymore!
-
-According to the [Vue CLI 3 docs](https://cli.vuejs.org/config) the only thing we need to [configure is a devserver-proxy](https://cli.vuejs.org/config/#devserver-proxy) for our webpack devserver requests. This could be done easily in the optional [vue.config.js](https://cli.vuejs.org/config/#vue-config-js) inside `devServer.proxy`: 
-
+#### 解決CORS
 ```js
 module.exports = {
   // proxy all webpack dev-server requests starting with /api
@@ -389,95 +105,159 @@ module.exports = {
   },
   ...
 }
+--------------------------------------------------------------------------------
+在vue根目錄創建vue.config.js
+https://cli.vuejs.org/zh/config/#devserver-proxy
+須注意使用devserver-proxy跳轉到localhost:8098時 
+axios的api baseURL 配置只需維持預設值(8080)，設定8098會CORS失敗
 ```
 
-With this configuration in place, the webpack dev-server uses the [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware), which is a really handy component, to proxy all frontend-requests from http://localhost:8080 --> http://localhost:8098 - incl. Changing the Origin accordingly.
+#### 切換遠端資料庫以及本機資料庫連線
+```java
+在backend/src/main/resources
 
-This is used in the webpack build process to configure the proxyMiddleware (you don't need to change something here!):
+有三個application properties檔案
+application.properties       →   存放共通設定
+application-dev.properties   →   存放本機資料庫(MySQL)連線properties
+application-prod.properties  →   存放遠端資料庫(PostgreSQL)連線properties
 
-```js
-// proxy api requests
-Object.keys(proxyTable).forEach(function (context) {
-  var options = proxyTable[context];
-  if (typeof options === 'string') {
-    options = { target: options }
-  }
-  app.use(proxyMiddleware(options.filter || context, options))
-})
+application.properties 內
+以
+spring.profiles.active = dev or prod
+
+做切換
 ```
 
-## Using history mode for nicer URLs
+#### 解決SEQUENCE與IDENTITY切換
+```java
+Entity內
 
-If we use the default configuration of the generated Vue.js template, we see URLs with a `#` inside them - like this:
-
-```
-http://localhost:8098/#/bootstrap
-
-or
-
-http://localhost:8098/#/user
-```
-
-With the usage of __[HTML5 history mode](https://router.vuejs.org/guide/essentials/history-mode.html#html5-history-mode)__, we can achieve much nicer URLs without the `#` in them. Only thing to do in the Vue.js frontend is to configure our router accordingly inside the [router.js](frontend/src/router.js):
-
-```
-...
-
-Vue.use(Router);
-
-const router = new Router({
-    mode: 'history', // uris without hashes #, see https://router.vuejs.org/guide/essentials/history-mode.html#html5-history-mode
-    routes: [
-        { path: '/', component: Hello },
-        { path: '/callservice', component: Service },
-        ...
+@Id
+	@GeneratedValue(
+			strategy = GenerationType.AUTO,
+			generator="native"
+	)
+	@GenericGenerator(
+			name="native",
+			strategy = "native"
+	)
+  ...
+  
+參考 https://vladmihalcea.com/why-should-not-use-the-auto-jpa-generationtype-with-mysql-and-hibernate/
 ```
 
-That's nearly everything. BUT only nearly! If one clicks on a link inside our frontend, the user is correctly send to the wished component. 
+## 如何在作業系統上運行
 
-But if the user enters the URL directly into the Browser, we get a `Whitelabel Error Page` because our Spring Boot backend gives us a __HTTP 404__ - since this URL isn't present in the backend:
+### 前置作業
+#### Windows(前後端分離)
+```
+安裝Java8
+參考manual
+https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/windows-7-install.html
 
-![html5-history-mode-whitelabel-error-page-404](screenshots/html5-history-mode-whitelabel-error-page-404.gif)
+安裝MySQL
+參照MySQL manual
+https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/windows-installation.html
 
-The solution is to redirect or better forward the user to the frontend (router) again. The [Vue.js docs don't provide an example configuration for Spring Boot](https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations), but luckily [there are other resources](https://www.baeldung.com/spring-redirect-and-forward). In essence we have to implement a forwarding controller in our [BackendController](backend/src/main/java/de/jonashackt/springbootvuejs/controller/BackendController.java):
+全域安裝nodejs 及 npm
+https://nodejs.org/en/
+安裝nodejs以後會順便安裝npm
+
+安裝maven (需先安裝java8)
+https://maven.apache.org/install.html
+
+安裝git bash
+https://git-scm.com/downloads
+Git PATH設定 選擇 use git from the windows command prompt
+
+MySQL資料庫編碼改成utf8mb4(中文化)
+參考
+https://stackoverflow.com/questions/3513773/change-mysql-default-character-set-to-utf-8-in-my-cnf/30044721#30044721
+my.inf檔案 通常會在programData/MySQL/MySQLServerX.X/my.inf
+需先設定顯示隱藏檔案
+完成後進MySQL Command Line Client
+輸入show variables like 'char%'
+除了character_set_system會是utf8 及 character_set_filesystem 會是binary
+其他都是utf8mb4 就成功了
 
 ```
-    // Forwards all routes to FrontEnd except: '/', '/index.html', '/api', '/api/**'
-    // Required because of 'mode: history' usage in frontend routing, see README for further details
-    @RequestMapping(value = "{_:^(?!index\\.html|api).$}")
-    public String redirectApi() {
-        LOG.info("URL entered directly into the Browser, so we need to redirect...");
-        return "forward:/";
-    }
+#### Linux(後端+前端轉譯後檔案)
+```
+安裝git
+sudo yum install git
+
+安裝java8
+sudo yum install java-1.8.0-openjdk
+
+安裝wget
+sudo yum install wget
+
+安裝grep
+sudo yum install grep
+
+安裝maven
+sudo yum install maven
+
+安裝MySQL
+參考MySQL manual
+https://dev.mysql.com/doc/refman/8.0/en/charset.html
+改編碼utf8mb4參考
+https://stackoverflow.com/questions/3513773/change-mysql-default-character-set-to-utf-8-in-my-cnf/30044721#30044721
+
 ```
 
-This controller will forward every request other then `'/', '/index.html', '/api', '/api/**'` to our Vue.js frontend.
+### 資料庫以及使用者創建
+```sql
+CREATE USER 'ecommerce'@'localhost' IDENTIFIED BY 'ecommerce';
 
+GRANT ALL PRIVILEGES ON * . * TO 'ecommerce'@'localhost';
 
-## Bootstrap & Vue.js
+ALTER USER 'ecommerce'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ecommerce';
 
-There’s a nice integration of Bootstrap in Vue.js: https://bootstrap-vue.js.org/
+-- -----------------------------------------------------
+-- Schema full-stack-ecommerce
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `full-stack-ecommerce`;
 
-```
-npm install bootstrap-vue
-```
+CREATE SCHEMA `full-stack-ecommerce`;
+USE `full-stack-ecommerce` ;
 
-Now you can use all the pretty Bootstrap stuff with ease like:
-
-```
-<b-btn @click="callRestService()">CALL Spring Boot REST backend service</b-btn>
-```
-
-instead of
-
-```
-<button type="button" class=”btn” @click="callRestService()">CALL Spring Boot REST backend service</button>
+-- -----------------------------------------------------
+-- 由於使用ddl.auto = update 可以不用手動創建table
+-- -----------------------------------------------------
 ```
 
-The docs contain all the possible components: https://bootstrap-vue.js.org/docs/components/alert/
+### 運行
 
-See some elements, when you go to http://localhost:8080/#/bootstrap/ - this should look like this:
+#### 在WINDOWS運行
 
-![bootstrap-styled-vuejs](screenshots/bootstrap-styled-vuejs.png)
+##### 前端轉譯+後端運行
+```
+使用管理員權限執行cmd
+git clone https://github.com/keepprogress/spring-vue-test.git
+cd .../spring-vue-test-master
 
-A good discussion about various UI component frameworks: http://vuetips.com/bootstrap
+mvn clean install
+mvn -pl backend spring-boot:run
+```
+
+##### 前端運行
+```
+cd .../spring-vue-test-master/frontend
+npm run serve
+```
+
+#### 在Linux運行
+```
+git clone https://github.com/keepprogress/spring-vue-test.git
+cd .../spring-vue-test-master
+
+mvn clean install
+mvn -pl backend spring-boot:run
+```
+
+#### 運行NightwatchEnd2EndTest(已從運行script移除但可手動運行)
+```
+cd .../spring-vue-test-master/frontend
+npm run test
+```

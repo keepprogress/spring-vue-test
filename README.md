@@ -163,7 +163,9 @@ cache:
 #### Heroku自動部屬
 ```
 ![heroku-pipeline](images/heroku-pipeline.png)
+
 勾選等待CI PASS
+
 ![heroku-deploy-with-ci](images/heroku-deploy-with-ci.png)
 
 ```

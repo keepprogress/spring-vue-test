@@ -18,9 +18,11 @@
     * [後端運行前端轉譯檔案](#後端運行前端轉譯檔案)
     * [Dockerfile](#dockerfile)
     * [Travis CI配置](#travisci配置)
+    * [Heroku自動部屬](#heroku自動部屬)
     * [SpringSecurity配置](#springsecurity配置)
     * [解決CORS](#解決cors)
     * [切換遠端資料庫以及本機資料庫連線](#切換遠端資料庫以及本機資料庫連線)
+    * [使遠端資料庫PostgresSQL使用UTF8(讀寫中文)](#使遠端資料庫postgressql使用utf8讀寫中文)
     * [解決SEQUENCE與IDENTITY切換](#解決sequence與identity切換)
     * [Nightwatch配置](#nightwatch配置)
     * [Vuex配置](#vuex配置)
@@ -158,6 +160,14 @@ cache:
 
 ```
 
+#### Heroku自動部屬
+```
+![heroku-pipeline](readme_img/heroku-pipeline.png)
+勾選等待CI PASS
+![heroku_deploy_with_ci](readme_img/heroku_deploy_with_ci.png)
+
+```
+
 #### SpringSecurity配置
 在backend/src/main/java/com/keepprogress/backend/configuration創立
 WebSecurityConfiguration.java檔
@@ -236,6 +246,31 @@ application.properties 內
 spring.profiles.active = dev or prod
 
 做切換
+```
+
+#### 使遠端資料庫PostgresSQL使用UTF8(讀寫中文)
+在spring.datasource.url加上
+?useUnicode=true&characterEncoding=UTF-8
+
+
+```js
+#datasource.url=postgres://lfjmhfcpbxtzjh:46fc048e051f0d530e492f17a9042422c3797ecc882de4b5bbc5106eac0b0df8@ec2-54-166-242-77.compute-1.amazonaws.com:5432/d1p7k40m672pvb
+
+
+
+##check ok!
+spring.datasource.url=jdbc:postgresql://ec2-54-166-242-77.compute-1.amazonaws.com:5432/d1p7k40m672pvb?useUnicode=true&characterEncoding=UTF-8
+spring.datasource.username=lfjmhfcpbxtzjh
+spring.datasource.password=46fc048e051f0d530e492f17a9042422c3797ecc882de4b5bbc5106eac0b0df8
+spring.datasource.type=org.apache.tomcat.jdbc.pool.DataSource
+
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+
+
+
 ```
 
 #### 解決SEQUENCE與IDENTITY切換

@@ -16,9 +16,15 @@
   * [前端技術](#前端技術)
   * [技術細節](#技術細節)
     * [後端運行前端轉譯檔案](#後端運行前端轉譯檔案)
+    * [Dockerfile](#dockerfile)
+    * [Travis CI配置](#travisci配置)
+    * [SpringSecurity配置](#springsecurity配置)
     * [解決CORS](#解決cors)
     * [切換遠端資料庫以及本機資料庫連線](#切換遠端資料庫以及本機資料庫連線)
     * [解決SEQUENCE與IDENTITY切換](#解決sequence與identity切換)
+    * [Nightwatch配置](#nightwatch配置)
+    * [Vuex配置](#vuex配置)
+    * [未登入跳轉頁面](#未登入跳轉頁面)
 * [如何在作業系統上運行](#如何在作業系統上運行)
   * [前置作業](#前置作業)
     * [Windows(前後端分離)](#windows前後端分離)
@@ -87,6 +93,110 @@ spring-boot-vuejs
 使用maven-resource-plugin將frontend/target/dist內檔案複製到
 backend/src/main/resources/public
 ```
+#### Dockerfile
+```js
+# Docker multi-stage build
+
+# 1. Building the App with Maven
+FROM maven:3-jdk-11
+
+ADD . /springvuedir
+WORKDIR /springvuedir
+
+# Just echo so we can see, if everything is there :)
+RUN ls -l
+
+# Run Maven build
+RUN mvn clean install
+
+
+# Just using the build artifact and then removing the build-container
+FROM openjdk:11-jdk
+
+MAINTAINER keepprogress
+
+VOLUME /tmp
+
+# Add Spring Boot app.jar to Container
+COPY --from=0 "/springvuedir/backend/target/backend-1.0.0.jar" app.jar
+
+ENV JAVA_OPTS=""
+
+# Fire up our Spring Boot app by default
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+
+```
+
+#### TravisCI配置
+```js
+建立.travis.yml檔案
+before_install 配置與application-dev.properties 對應之datasource
+-------------------------------------------------------------------------------
+
+language: java
+jdk:
+  - openjdk8
+  - openjdk9
+  - openjdk11
+
+service:
+  - mysql
+
+before_install:
+  - mysql -u root -e 'CREATE SCHEMA IF NOT EXISTS `full-stack-ecommerce`;'
+  - mysql -u root -e "CREATE USER IF NOT EXISTS 'ecommerce'@'localhost' IDENTIFIED BY 'ecommerce';"
+  - mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'ecommerce'@'localhost';"
+  - mysql -u root -e "USE `full-stack-ecommerce`;"
+
+script: mvn clean install
+
+cache:
+  directories:
+  - node_modules
+  
+-------------------------------------------------------------------------------
+
+```
+
+#### SpringSecurity配置
+在backend/src/main/java/com/keepprogress/backend/configuration創立
+WebSecurityConfiguration.java檔
+關閉SpringSecurity內建 CSRF token 前端不接Token
+設定/api/secured需驗證
+```java
+package com.keepprogress.backend.configuration;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		
+		http
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // No session will be created or used by spring security
+		.and()
+			.httpBasic()
+		.and()
+			.authorizeRequests()
+				.antMatchers("/magic-api/**").permitAll()
+				.antMatchers("/api/hello").permitAll()
+				.antMatchers("/api/user/**").permitAll() // allow every URI, that begins with '/api/user/'
+				.antMatchers("/api/secured").authenticated()
+				//.anyRequest().authenticated() // protect all other requests
+		.and()
+			.csrf().disable(); // disable cross site request forgery, as we don't use cookies - otherwise ALL PUT, POST, DELETE will get HTTP 403!
+
+	}
+
+}
+```
 
 #### 解決CORS
 ```js
@@ -144,6 +254,116 @@ Entity內
   ...
   
 參考 https://vladmihalcea.com/why-should-not-use-the-auto-jpa-generationtype-with-mysql-and-hibernate/
+```
+
+#### Nightwatch配置
+根目錄創建 nightwatch.conf.js
+```js
+const chrome = require('chromedriver')
+
+module.exports = {
+
+  src_folders: ['tests/e2e/youtubee2e'],
+  page_objects_path: ['tests/e2e/youtubee2e/pageobj'],
+
+  webdriver: {
+    start_process: true,
+    server_path: chrome.path,
+    port: 9500
+  },
+
+  test_settings: {
+    default: {
+      desiredCapabilities: {
+        browserName: 'chrome'
+      }
+    }
+  }
+}
+
+```
+
+#### Vuex配置
+src/store/index.js
+```js
+import Vue from 'vue'
+import Vuex from 'vuex'
+import api from '@/utils/backend-api.js'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    loginSuccess: false,
+    loginError: false,
+    userName: null,
+    userPass: null
+  },
+  actions: {
+    login ({ commit }, { user, password }) {
+      return new Promise((resolve, reject) => {
+        console.log("Accessing backend with user: '" + user)
+        api.getSecured(user, password)
+          .then(response => {
+            console.log("Response: '" + response.data + "' with Statuscode " + response.status)
+            if (response.status === 200) {
+              console.log('Login successful')
+              // place the loginSuccess state into our vuex store
+              commit('loginSuccess', {
+                userName: user,
+                userPass: password
+              })
+            }
+            resolve(response)
+          })
+          .catch(error => {
+            console.log('Error: ' + error)
+            // place the loginError state into our vuex store
+            commit('loginError', {
+              userName: user
+            })
+            reject(new Error('Invalid credentials!'))
+          })
+      })
+    }
+  },
+  mutations: {
+    loginSuccess (state, payload) {
+      state.loginSuccess = true
+      state.username = payload.userName
+    },
+    loginError (state, payload) {
+      state.loginError = true
+      state.userName = payload.userName
+    }
+  },
+  getters: {
+    isLoggedIn: state => state.loginSuccess,
+    hasLoginErrored: state => state.loginError
+  }
+})
+
+```
+
+#### 未登入跳轉頁面
+在src/router/index.js
+```js
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    console.log('Needs Authorization Here!')
+    if (!store.getters.isLoggedIn) {
+      next({
+        path: '/login'
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // make sure to always call next()!
+  }
+})
 ```
 
 ## 如何在作業系統上運行

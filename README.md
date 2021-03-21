@@ -162,9 +162,9 @@ cache:
 
 #### Heroku自動部屬
 ```
-![heroku-pipeline](https://keepprogress.github.com/images/heroku-pipeline.png)
+![heroku-pipeline](https://keepprogress.github.com/spring-vue-test/images/heroku-pipeline.png)
 勾選等待CI PASS
-![heroku-deploy-with-ci](https://keepprogress.github.com/images/heroku-deploy-with-ci.png)
+![heroku-deploy-with-ci](https://keepprogress.github.com/spring-vue-test/images/heroku-deploy-with-ci.png)
 
 ```
 

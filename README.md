@@ -162,9 +162,9 @@ cache:
 
 #### Heroku自動部屬
 ```
-![heroku-pipeline](https://keepprogress.github.com/spring-vue-test/blob/master/images/heroku-pipeline.png?raw=true)
+![heroku-pipeline](https://github.com/keepprogress/spring-vue-test/blob/master/images/heroku-pipeline.png?raw=true)
 勾選等待CI PASS
-![heroku-deploy-with-ci](https://keepprogress.github.com//blob/master/spring-vue-test/images/heroku-deploy-with-ci.png?raw=true)
+![heroku-deploy-with-ci](https://github.com/keepprogress/blob/master/spring-vue-test/images/heroku-deploy-with-ci.png?raw=true)
 
 ```
 
